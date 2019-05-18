@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_02_062500) do
+ActiveRecord::Schema.define(version: 2019_05_18_121757) do
 
   create_table "blogs", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title"
@@ -32,13 +32,6 @@ ActiveRecord::Schema.define(version: 2019_05_02_062500) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "blog_id"
-  end
-
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.integer "age"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end
