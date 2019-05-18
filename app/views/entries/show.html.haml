@@ -12,3 +12,18 @@
 = link_to 'Edit', edit_blog_entry_path(@blog, @entry)
 |
 = link_to 'Back', blog_path(@blog)
+
+%h1 Listing comments
+
+%table
+  %thead
+    %tr
+      %th Body
+      %th{colspan: "2"}
+
+  %tbody
+    - @entry.comments.each do |comment|
+      %tr
+        %td= comment.body
+        %td= comment.status
+        %td= link_to 'Destroy'
