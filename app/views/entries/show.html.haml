@@ -9,6 +9,6 @@
   %strong Body:
   = @entry.body
 
-= link_to 'Edit', edit_entry_path(@entry)
+= link_to 'Edit', edit_blog_entry_path(@blog, @entry)
 |
-= link_to 'Back', entries_path
+= link_to 'Back', blog_path(@blog)
