@@ -31,3 +31,6 @@
 
 # local bundle
 /vendor/bundle/
+
+# local memo
+/memo.md
