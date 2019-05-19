@@ -23,6 +23,8 @@ class CommentsController < ApplicationController
 
     if @comment.save
       render :index
+    else
+      render :error
     end
   end
 
