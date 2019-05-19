@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :blogs do
-    resources :entries, except: [:index]
+    resources :entries, except: [:index] do
+      resources :comments
+    end
   end
 
   root to: 'blogs#index'

@@ -13,17 +13,5 @@
 |
 = link_to 'Back', blog_path(@blog)
 
-%h1 Listing comments
-
-%table
-  %thead
-    %tr
-      %th Body
-      %th{colspan: "2"}
-
-  %tbody
-    - @entry.comments.each do |comment|
-      %tr
-        %td= comment.body
-        %td= comment.status
-        %td= link_to 'Destroy'
+= render 'comments/index', blog: @blog, entry: @entry, comments: @entry.comments
+= render 'comments/form', blog: @blog, entry: @entry, comment: @comment

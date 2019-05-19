@@ -1,0 +1,18 @@
+#comments_area
+  %h1 Listing comments
+
+  %table
+    %thead
+      %tr
+        %th Body
+        %th
+        %th
+
+    %tbody
+      - comments.each do |comment|
+        %tr
+          %td= comment.body
+          %td= comment.status
+          %td= link_to 'Destroy', [blog, entry, comment], method: :delete, data: { confirm: 'Are you sure?' }
+
+  %br
