@@ -1,9 +1,9 @@
 class CommentsController < ApplicationController
   before_action :set_blog
   before_action :set_entry
-  before_action :set_comment, only: [:destroy]
+  before_action :set_comment, only: [:approve, :destroy]
 
-  # POST /comments.json
+  # POST /blogs/1/entries/1/comments
   def create
     @comment = @entry.comments.new(comment_params)
 
@@ -14,7 +14,18 @@ class CommentsController < ApplicationController
     end
   end
 
-  # DELETE /comments/1.json
+  # PUT /blogs/1/entries/1/comments/1/approve
+  def approve
+    @comment.approve
+
+    if @comment.save
+      render :reload_index
+    else
+      render :show_errors
+    end
+  end
+
+  # DELETE /blogs/1/entries/1/comments/1
   def destroy
     @comment.destroy
     render :reload_index
