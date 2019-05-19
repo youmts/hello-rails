@@ -8,16 +8,16 @@ class CommentsController < ApplicationController
     @comment = @entry.comments.new(comment_params)
 
     if @comment.save
-      render :index
+      render :reload_index
     else
-      render :error
+      render :show_errors
     end
   end
 
   # DELETE /comments/1.json
   def destroy
     @comment.destroy
-    render :index
+    render :reload_index
   end
 
   private
