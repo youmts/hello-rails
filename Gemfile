@@ -53,6 +53,8 @@ group :development do
 
   gem 'hirb'
   gem 'hirb-unicode'
+
+  gem 'letter_opener', "~> 1.1.0"
 end
 
 

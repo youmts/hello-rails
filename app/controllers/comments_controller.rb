@@ -8,6 +8,8 @@ class CommentsController < ApplicationController
     @comment = @entry.comments.new(comment_params)
 
     if @comment.save
+      NoticeMailer.create_comment(@comment).deliver
+
       render :reload_index
     else
       render :show_errors

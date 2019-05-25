@@ -1,0 +1,20 @@
+%p
+  新しいコメントが登録されました。
+  %br
+  承認または削除してください。
+%p
+  Blog:
+  = @comment.entry.blog.title
+  %br
+
+  Entry:
+  = @comment.entry.title
+  %br
+
+  Comment:
+  = @comment.body
+  %br
+
+  URL:
+  - url = blog_entry_url(@comment.entry.blog, @comment.entry)
+  = link_to url, url
