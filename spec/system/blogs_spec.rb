@@ -6,7 +6,7 @@ RSpec.describe 'Blogs', type: :system do
 
     fill_in 'Title', with: ''
     expect {
-      click_button 'Save'
+      click_button 'Create Blog'
     }.to change(Blog, :count).by(0)
 
     expect(page).to have_content "1 error prohibited this blog from being saved:"
@@ -18,7 +18,7 @@ RSpec.describe 'Blogs', type: :system do
 
     fill_in 'Title', with: 'title'
     expect {
-      click_button 'Save'
+      click_button 'Create Blog'
     }.to change(Blog, :count).by(1)
 
     expect(page).to have_current_path blog_path(Blog.last.id)

@@ -1,10 +1,5 @@
-= form_with(model: comment, url: [blog, entry, comment]) do |form|
+= simple_form_for [blog, entry, comment], remote: true do |form|
   #comment_error_explanation
 
-  .field
-    = form.label :body
-    %br
-    = form.text_area :body
-
-  .actions
-    = form.submit 'Save'
+  = form.input :body
+  = form.button :submit
