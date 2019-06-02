@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe 'Blogs', type: :system do
+  before do
+    sign_in create(:user)
+  end
+
   scenario 'Blogの新規作成時にtitleを入力しないとエラーになること' do
     visit new_blog_path
 

@@ -1,4 +1,5 @@
 class EntriesController < ApplicationController
+  before_action :authenticate_user!, except: [:show]
   before_action :set_blog
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
 
