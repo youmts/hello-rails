@@ -34,3 +34,6 @@
 
 # local memo
 /memo.md
+
+# Ignore omniauth key and secret
+/config/omniauth.yml
