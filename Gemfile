@@ -66,6 +66,8 @@ group :development do
   gem 'letter_opener', "~> 1.1.0"
 
   gem 'spring-commands-rspec'
+
+  gem 'annotate'
 end
 
 group :test do
