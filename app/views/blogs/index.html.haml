@@ -1,9 +1,15 @@
 %h1 Listing blogs
 
+= search_form_for @q do |f|
+  = f.label :title_cont
+  = f.search_field :title_cont
+  = f.submit
+
 %table
   %thead
     %tr
-      %th Title
+      %th
+        = sort_link(@q, :title)
       %th
       %th{colspan: "3"}
 
