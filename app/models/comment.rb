@@ -11,16 +11,14 @@
 #
 
 class Comment < ApplicationRecord
+  extend Enumerize
+
   belongs_to :entry
 
   validates :body, presence: true
-  validates :status, inclusion: {in: %w(approved unapproved)}
-
-  def approved?
-    self.status == "approved"
-  end
+  enumerize :status, in: %w(unapproved approved), predicates: true
 
   def approve
-    self.status = "approved"
+    self.status = :approved
   end
 end

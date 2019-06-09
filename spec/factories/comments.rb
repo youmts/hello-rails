@@ -13,7 +13,7 @@
 FactoryBot.define do
   factory :comment do
     body {"body"}
-    status {"unapproved"}
+    status {:unapproved}
     entry
   end
 end
