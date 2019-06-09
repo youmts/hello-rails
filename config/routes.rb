@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :blogs do
     resources :entries, except: [:index] do
+      resources :attachments, only: [:index, :create, :new, :destroy]
       resources :comments, only: [:create, :destroy] do
         member do
           put 'approve'

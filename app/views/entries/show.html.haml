@@ -6,6 +6,10 @@
   %strong Body:
   = @entry.body
 
+= link_to 'Attachments', blog_entry_attachments_path(@blog, @entry)
+
+%br
+
 = link_to 'Edit', edit_blog_entry_path(@blog, @entry)
 |
 = link_to 'Back', blog_path(@blog)

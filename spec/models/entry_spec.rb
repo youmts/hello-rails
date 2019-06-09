@@ -26,4 +26,9 @@ RSpec.describe Entry, type: :model do
       expect(create(:entry, :has_comments).persisted?).to be_truthy
     end
   end
+
+  it "attachmentを持てること" do
+    entry = create(:entry)
+    entry.attachments.create(attachment: "attachment")
+  end
 end

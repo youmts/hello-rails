@@ -40,6 +40,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'simple_form'
 gem 'enumerize'
+gem 'carrierwave', '~> 1.0'
 
 gem 'devise'
 gem 'omniauth-oauth2'
