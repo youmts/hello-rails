@@ -11,13 +11,24 @@
 require 'rails_helper'
 
 RSpec.describe Blog, type: :model do
-  it "titleがあれば有効な状態であること" do
-    blog = Blog.new(title: "title")
-    expect(blog.valid?).to be_truthy
+  describe "factory" do
+    it "buildが有効であること" do
+      expect(build(:blog).valid?).to be_truthy
+    end
+
+    it "createができること" do
+      expect(create(:blog).persisted?).to be_truthy
+    end
+
+    it "entryを複数持つcreateができること" do
+      blog = create(:blog, :has_entries)
+      expect(blog.valid?).to be_truthy
+      expect(blog.entries.count).to be > 0
+    end
   end
 
   it "titleがなければ無効な状態であること" do
-    blog = Blog.new(title: "")
+    blog = build(:blog, title: "")
     expect(blog.valid?).to be_falsey
   end
 end
