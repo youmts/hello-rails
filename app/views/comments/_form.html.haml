@@ -1,5 +1,5 @@
 = simple_form_for [blog, entry, comment], remote: true do |form|
   #comment_error_explanation
 
-  = form.input :body
+  = form.input :body, label: "New Comment"
   = form.button :submit
