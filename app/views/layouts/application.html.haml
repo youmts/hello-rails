@@ -11,11 +11,22 @@
 
   %body
     %header.header
-      - if user_signed_in?
-        = current_user.email
-        = link_to 'Log out', destroy_user_session_url, method: :delete, data: { confirm: 'Are you sure?' }
-      - else
-        = link_to 'Log in', new_user_session_url
+      %h1.logo
+        %a{href: "/"}
+          Hello Rails
+
+      %nav.global-nav
+        %ul
+          %li.nav-item.active
+            %a{href: "#"}
+              HOME
+          - if user_signed_in?
+            %li.nav-item
+              = current_user.email
+              = link_to 'Log out', destroy_user_session_url, method: :delete, data: { confirm: 'Are you sure?' }
+          - else
+            %li.nav-item
+              = link_to 'Log in', new_user_session_url
 
     .wrapper.clearfix
       %main.main
