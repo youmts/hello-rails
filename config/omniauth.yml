@@ -1,0 +1,15 @@
+default: &default
+  google:
+    key: <%= ENV['OMNIAUTH_GOOGLE_KEY'] %>
+    secret: <%= ENV['OMNIAUTH_GOOGLE_SECRET'] %>
+
+development:
+  <<: *default
+
+test:
+  google:
+    key: test
+    secret: test
+
+production:
+  <<: *default
