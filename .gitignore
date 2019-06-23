@@ -34,3 +34,6 @@
 
 # local memo
 /memo.md
+
+# local backup
+*.bak
