@@ -261,7 +261,8 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
 
-  OAUTH_CONFIG = YAML.load_file("#{Rails.root}/config/omniauth.yml")[Rails.env].symbolize_keys!
+  oauth_yaml = "#{Rails.root}/config/omniauth.yml"
+  OAUTH_CONFIG = YAML.load(ERB.new(IO.read(oauth_yaml)).result)[Rails.env].symbolize_keys!
 
   config.omniauth :google_oauth2,
                   OAUTH_CONFIG[:google]['key'],
