@@ -18,7 +18,7 @@
       %nav.global-nav
         %ul
           %li.nav-item.active
-            %a{href: "#"}
+            %a{href: blogs_url}
               HOME
           - if user_signed_in?
             %li.nav-item
@@ -29,14 +29,11 @@
               = link_to 'Log in', new_user_session_url
 
     .wrapper.clearfix
-      %main.main
-        %p.notice
-          = notice
-        %p.alert
-          = alert
+      %p.notice
+        = notice
+      %p.alert
+        = alert
 
-        = yield
-
-      .sidemenu
+      = yield
 
     %footer.footer
