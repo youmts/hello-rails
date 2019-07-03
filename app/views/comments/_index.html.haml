@@ -18,7 +18,7 @@
               (承認待ち)
           %td
             - if !comment.approved?
-              = link_to 'Approve', approve_blog_entry_comment_path(blog, entry, comment), method: :put, remote: true
-          %td= link_to 'Destroy', [blog, entry, comment], method: :delete, data: { confirm: 'Are you sure?' }, remote: true
+              = link_to 'Approve', approve_comment_path(comment), method: :put, remote: true
+          %td= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' }, remote: true
 
   %br

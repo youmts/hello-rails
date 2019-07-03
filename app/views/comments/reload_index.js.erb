@@ -1,4 +1,4 @@
 document.getElementById("comments_area").innerHTML =
-    "<%= j(render 'index', blog: @blog, entry: @entry, comments: @entry.comments) %>"
+    "<%= j(render 'index', entry: @entry, comments: @entry.comments) %>"
 document.getElementById("comment_body").value = ""
 document.getElementById("comment_error_explanation").innerHTML = ""

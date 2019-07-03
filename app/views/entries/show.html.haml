@@ -6,13 +6,13 @@
   %strong Body:
   = @entry.body
 
-= link_to 'Attachments', blog_entry_attachments_path(@blog, @entry)
+= link_to 'Attachments', entry_attachments_path(@entry)
 
 %br
 
-= link_to 'Edit', edit_blog_entry_path(@blog, @entry)
+= link_to 'Edit', edit_entry_path(@entry)
 |
-= link_to 'Back', blog_path(@blog)
+= link_to 'Back', blog_path(@entry.blog)
 
-= render 'comments/index', blog: @blog, entry: @entry, comments: @entry.comments
-= render 'comments/form', blog: @blog, entry: @entry, comment: @comment
+= render 'comments/index', comments: @entry.comments
+= render 'comments/form', entry: @entry, comment: @comment

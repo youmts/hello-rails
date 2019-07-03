@@ -1,6 +1,6 @@
 class EntriesController < ApplicationController
   before_action :authenticate_user!, except: [:show]
-  before_action :set_blog
+  before_action :set_blog, only: [:new, :create]
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
 
   # GET /blogs/1/entries/1
@@ -10,7 +10,7 @@ class EntriesController < ApplicationController
 
   # GET /blogs/1/entries/new
   def new
-    @entry = Entry.new
+    @entry = @blog.entries.new
   end
 
   # GET /blogs/1/entries/1/edit
@@ -23,7 +23,7 @@ class EntriesController < ApplicationController
 
     respond_to do |format|
       if @entry.save
-        format.html { redirect_to [@blog, @entry], notice: 'Entry was successfully created.' }
+        format.html { redirect_to @entry, notice: 'Entry was successfully created.' }
       else
         format.html { render :new }
       end
@@ -34,7 +34,7 @@ class EntriesController < ApplicationController
   def update
     respond_to do |format|
       if @entry.update(entry_params)
-        format.html { redirect_to [@blog, @entry], notice: 'Entry was successfully updated.' }
+        format.html { redirect_to @entry, notice: 'Entry was successfully updated.' }
       else
         format.html { render :edit }
       end
@@ -43,9 +43,10 @@ class EntriesController < ApplicationController
 
   # DELETE /blogs/1/entries/1
   def destroy
+    blog = @entry.blog
     @entry.destroy
     respond_to do |format|
-      format.html { redirect_to @blog, notice: 'Entry was successfully destroyed.' }
+      format.html { redirect_to blog, notice: 'Entry was successfully destroyed.' }
     end
   end
 
@@ -56,7 +57,7 @@ class EntriesController < ApplicationController
     end
 
     def set_entry
-      @entry = @blog.entries.find(params[:id])
+      @entry = Entry.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

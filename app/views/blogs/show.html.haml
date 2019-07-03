@@ -20,9 +20,9 @@
       %tr
         %td= entry.title
         %td= entry.body
-        %td= link_to 'Show', blog_entry_path(@blog, entry)
-        %td= link_to 'Edit', edit_blog_entry_path(@blog, entry)
-        %td= link_to 'Destroy', blog_entry_path(@blog, entry), method: :delete, data: {confirm: 'Are you sure?' }
+        %td= link_to 'Show', entry_path(entry)
+        %td= link_to 'Edit', edit_entry_path(entry)
+        %td= link_to 'Destroy', entry_path(entry), method: :delete, data: {confirm: 'Are you sure?' }
 
 %br
   = link_to 'New Entry', new_blog_entry_path(@blog)

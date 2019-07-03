@@ -10,9 +10,9 @@
     - @attachments.each do |attachment|
       %tr
         %td= image_tag attachment.file.to_s
-        %td= link_to 'Destroy', blog_entry_attachment_path(@blog, @entry, attachment), method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Destroy', attachment_path(attachment), method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 
-= link_to 'New Attachment', new_blog_entry_attachment_path(@blog, @entry)
+= link_to 'New Attachment', new_entry_attachment_path(@entry)
 
