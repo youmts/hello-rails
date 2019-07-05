@@ -40,11 +40,11 @@ RSpec.describe 'Blogs', type: :system do
       click_button 'Update Blog'
     }.to change { Blog.find(blog.id).title }.from(old_title).to(new_title)
 
-    expect(page).to have_current_path blog_path(Blog.last.id)
+    expect(page).to have_current_path blog_path(blog)
     expect(page).to have_content "Blog was successfully updated."
   end
 
-  scenario 'Blogの削除が完了するとBlog閲覧画面に遷移すること' do
+  scenario 'Blogの削除が完了するとBlog一覧画面に遷移すること' do
     blog = create(:blog)
 
     visit blogs_path
