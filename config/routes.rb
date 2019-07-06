@@ -3,10 +3,10 @@ Rails.application.routes.draw do
     omniauth_callbacks: "custom/devise/omniauth_callbacks"
   }
 
-  resources :blogs do
-    resources :entries, except: [:index], shallow: true do
-      resources :attachments, only: [:index, :create, :new, :destroy], shallow: true
-      resources :comments, only: [:create, :destroy], shallow: true do
+  resources :blogs, shallow: true do
+    resources :entries, except: [:index] do
+      resources :attachments, only: [:index, :create, :new, :destroy]
+      resources :comments, only: [:create, :destroy] do
         member do
           put 'approve'
         end
