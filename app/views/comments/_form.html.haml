@@ -1,4 +1,4 @@
-= simple_form_for [blog, entry, comment], remote: true, html: { class: 'comment-form' } do |form|
+= simple_form_for [entry, comment], remote: true, html: { class: 'comment-form' } do |form|
   #comment_error_explanation
 
   = form.input :body, label: "New Comment", input_html: { class: 'comment-form__body'}

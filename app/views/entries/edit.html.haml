@@ -1,7 +1,7 @@
 %h1 Editing Entry
 
-= render 'form', blog: @blog, entry: @entry
+= render 'form', blog: nil, entry: @entry
 
-= link_to 'Show', blog_entry_path(@blog, @entry)
+= link_to 'Show', entry_path(@entry)
 |
-= link_to 'Back', blog_path(@blog)
+= link_to 'Back', blog_path(@entry.blog)

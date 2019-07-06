@@ -1,7 +1,6 @@
 class AttachmentsController < ApplicationController
-  before_action :set_blog
-  before_action :set_entry
-  before_action :set_attachment, only:[:destroy]
+  before_action :set_entry, only: [:index, :new, :create]
+  before_action :set_attachment, only: [:destroy]
 
   def index
     @attachments = @entry.attachments
@@ -16,7 +15,7 @@ class AttachmentsController < ApplicationController
 
     respond_to do |format|
       if @attachment.save
-        format.html { redirect_to [@blog, @entry], notice: 'Attachment was successfully created.' }
+        format.html { redirect_to @entry, notice: 'Attachment was successfully created.' }
       else
         format.html { render :new }
       end
@@ -24,24 +23,21 @@ class AttachmentsController < ApplicationController
   end
 
   def destroy
+    @entry = @attachment.entry
     @attachment.destroy
     respond_to do |format|
-      format.html { redirect_to [@blog, @entry], notice: 'Attachment was successfully destroyed.' }
+      format.html { redirect_to @entry, notice: 'Attachment was successfully destroyed.' }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_blog
-      @blog = Blog.find(params[:blog_id])
-    end
-
     def set_entry
-      @entry = @blog.entries.find(params[:entry_id])
+      @entry = Entry.find(params[:entry_id])
     end
 
     def set_attachment
-      @attachment = @entry.attachments.find(params[:id])
+      @attachment = Attachment.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
